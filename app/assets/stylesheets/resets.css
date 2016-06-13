@@ -1,0 +1,25 @@
+a {
+    text-decoration: none;    
+}
+
+*{
+    text-align: center;
+    margin:0;
+    padding:0;
+}
+
+td, .left {
+    text-align: left;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+li {
+    display: inline;
+}
+
+li a {
+    display: block;
+}
