@@ -1,12 +1,24 @@
-a {
-    text-decoration: none;    
-}
-
 *{
-    text-align: center;
     margin:0;
     padding:0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
+
+a {
+    text-decoration: none; 
+    color: currentColor;
+}
+
+a:visited {
+    color: currentColor;
+}
+
+a:hover {
+    color: darkslategrey;
+}
+
 
 td, .left {
     text-align: left;

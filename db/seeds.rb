@@ -10,7 +10,7 @@
 Product.delete_all
 
 
-(0..20).each do |p|
+(0..40).each do |p|
 name = "Produkt "+p.to_s
 text = "Produkttext lorem ipsum etc. "+p.to_s
 price = rand(10)

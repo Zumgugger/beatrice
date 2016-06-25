@@ -3,18 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
+    
 
   <body>
-    <%= render "/layouts/header" %>
-    <%= yield %>
-    <%= render "/layouts/footer" %>
-
+  <div class="middle"> <!-- Responsive margin left and right -->
+    <div id="wrapper"> <!-- Give a relative position and expand to child element-->
+        <%= render "/layouts/header" %>
+            <div class="content">
+                <%= yield %>
+            </div>
+        <%= render "/layouts/footer" %>
+    </div>
+  </div>
   </body>
 </html>

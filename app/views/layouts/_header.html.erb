@@ -1,18 +1,18 @@
 <header class="row">
-    <h1>
+    <h1 class="center">
         <a href="/">
             Beatrice Gugger
         </a>
     </h1>
-</header>
 
-<nav>
-    <div id="navwrapper" class="middle">
-    <ul>
-        <li class="col-3">Menupunkt 1</li>
-        <li class="col-3">Menupunkt 2</li>
-        <li class="col-3">Menupunkt 3</li>
-        <li class="col-3">Menupunkt 4</li>
-    </ul>
-    </div>
-</nav>
+
+    <nav>
+        <ul>
+            <li> <a href="/blogposts" class="col-3 col-m-6">Blog</a> </li>
+            <li> <a href="/products" class="col-3 col-m-6">Produkte</a> </li>
+            <li> <%= link_to "Kontakt", contact_path, class: "col-3 col-m-6" %></li>
+            <li> <a href="about" class="col-3 col-m-6">About</a> </li>
+        </ul>
+    </nav>
+    
+</header>
