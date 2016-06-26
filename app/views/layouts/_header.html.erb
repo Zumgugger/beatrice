@@ -9,9 +9,13 @@
     <nav>
         <ul>
             <li> <a href="/blogposts" class="col-3 col-m-6">Blog</a> </li>
-            <li> <a href="/products" class="col-3 col-m-6">Produkte</a> </li>
             <li> <%= link_to "Kontakt", contact_path, class: "col-3 col-m-6" %></li>
-            <li> <a href="about" class="col-3 col-m-6">Über mich</a> </li>
+            <li> <a href="/about" class="col-3 col-m-6">Über mich</a> </li>
+            <% if !logged_in? %>
+            <li> <%=link_to "Login", login_path, class: "col-3 col-m-6"%></li>
+            <% else %>
+            <li><%= link_to "Logout", logout_path, method: "delete", class: "col-3 col-m-6" %> </li>
+            <%end%>
         </ul>
     </nav>
     

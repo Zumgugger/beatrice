@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def create
       @user=User.new(user_params)
       if @user.save
+        log_in @user
         flash[:notice] = "Registrierung erfolgreich"
         flash[:color]= "valid"
         redirect_to @user
