@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'sessions/new'
+
     # get '/patients/:id', to: 'patients#show'
     # get '/patients/:id', to: 'patients#show', as: 'patient'
 

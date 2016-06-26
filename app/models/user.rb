@@ -15,11 +15,12 @@
 
 class User < ApplicationRecord
     has_secure_password
+    before_save {self.email = email.downcase}
     
     
     EMAIL_REGEX= /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
-    validates :username, :presence => true, :uniqueness => true
     validates :email, :presence => true, :uniqueness => true, :format => EMAIL_REGEX
+    validates :username, :presence => true, :uniqueness => true
     validates :password, :confirmation => true
     validates_presence_of :password, on: :create
 
