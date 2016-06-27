@@ -12,32 +12,37 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :Name %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :description %>
+    <%= f.label :Beschreibung %>
     <%= f.text_area :description %>
   </div>
 
   <div class="field">
-    <%= f.label :release_date %>
+    <%= f.label :Herausgabedatum %>
     <%= f.datetime_select :release_date %>
   </div>
 
   <div class="field">
-    <%= f.label :on_sale %>
+    <%= f.label "Verkauf" %>
     <%= f.check_box :on_sale %>
   </div>
 
   <div class="field">
-    <%= f.label :price %>
+    <%= f.label :Preis %>
     <%= f.text_field :price %>
   </div>
 
   <div class="field">
-    <%= f.label :image %>
+    <%= f.label :Kategorie %>
+    <%= f.collection_select(:product_category_id, ProductCategory.all, :id, :name)  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Bild %>
     <%= f.text_field :image %>
   </div>
 

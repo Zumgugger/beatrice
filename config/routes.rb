@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :product_categories
 root 'products#index'
     
 #sessions
@@ -10,6 +11,7 @@ delete  'logout'=>  'sessions#destroy'
 resources :products
 resources :users
 resources :blogposts
+resources :account_activations, only: [:edit]
  
 #additional routes    
 get 'products/list', to: 'products#list', as: 'products_list'

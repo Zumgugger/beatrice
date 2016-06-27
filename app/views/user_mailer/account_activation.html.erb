@@ -1,0 +1,10 @@
+<h1>Sample App</h1>
+
+<p>Hallo <%= @user.name %>,</p>
+
+<p>
+Willkommen auf Beatricegugger.ch. Klicke auf den Link, um die Registrierung zu bestätigen: 
+</p>
+
+<%= link_to "Aktivieren", edit_account_activation_url(@user.activation_token,
+                                                    email: @user.email) %>

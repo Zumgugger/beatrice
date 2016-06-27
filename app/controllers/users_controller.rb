@@ -14,9 +14,8 @@ class UsersController < ApplicationController
   def create
       @user=User.new(user_params)
       if @user.save
-        log_in @user
-        flash[:notice] = "Registrierung erfolgreich"
-        flash[:color]= "valid"
+        UserMailer.account_activation(@user).deliver_now
+        flash[:info] = "Bitte Email checken, um Vorgang abzuschliessen."
         redirect_to @user
       else
         flash[:notice] = "Form is invalid"

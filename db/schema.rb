@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160626080722) do
+ActiveRecord::Schema.define(version: 20160627190457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 20160626080722) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "product_categories", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "publised",    default: true
+    t.integer  "stock",       default: 1
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -31,8 +40,10 @@ ActiveRecord::Schema.define(version: 20160626080722) do
     t.boolean  "on_sale"
     t.float    "price"
     t.string   "image"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "product_category_id"
+    t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,6 +55,9 @@ ActiveRecord::Schema.define(version: 20160626080722) do
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
     t.string   "password_digest"
+    t.string   "activation_digest"
+    t.boolean  "activated",          default: false
+    t.datetime "activated_at"
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
