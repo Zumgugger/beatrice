@@ -32,5 +32,9 @@
   <%= @product.image %>
 </p>
 
+<p>
+  <strong>Kategorie:</strong>
+  <%= @product.product_category.name %>
+</p>
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

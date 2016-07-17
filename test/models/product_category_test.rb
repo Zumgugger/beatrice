@@ -9,6 +9,7 @@
 #  stock       :integer          default(1)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  image       :string
 #
 
 require 'test_helper'

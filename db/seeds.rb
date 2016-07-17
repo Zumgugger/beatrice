@@ -7,14 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Product.delete_all
+ProductCategory.delete_all
 
-
-(0..40).each do |p|
-name = "Produkt "+p.to_s
-text = "Produkttext lorem ipsum etc. "+p.to_s
-price = rand(10)
+(0..20).each do |p|
+name = "Produktkategorie "+p.to_s
+text = "Produktkategorietext lorem ipsum etc. "+p.to_s
 image = 'products/doodle'+rand(1..9).to_s+'.jpg'
-Product.create(name: name, description: text, on_sale: true, release_date:Time.now, price: price, image: image)
+ProductCategory.create(name: name, description: text, published: true, image: image)
 end
+
+Product.delete_all
+ProductCategory.all.each do |c|
+    (0..rand(10)).each do |p|
+    name = "Produkt "+p.to_s
+    text = "Produkttext lorem ipsum etc. "+p.to_s
+    price = rand(10)
+    image = 'products/doodle'+rand(1..9).to_s+'.jpg'
+    category_id = c.id
+    Product.create(name: name, description: text, on_sale: true, release_date:Time.now, price: price, image: image, product_category_id: category_id)
+    end
+end
+
 

@@ -1,20 +1,22 @@
 Rails.application.routes.draw do
 
-  resources :product_categories
-root 'products#index'
+
+root 'product_categories#index'
     
 #sessions
 get     'login' => "sessions#new"
 post    'login' => 'sessions#create'
 delete  'logout'=>  'sessions#destroy'
 
+resources :product_categories
 resources :products
 resources :users
 resources :blogposts
 resources :account_activations, only: [:edit]
  
 #additional routes    
-get 'products/list', to: 'products#list', as: 'products_list'
+get 'products_list', to: 'products#list', as: 'products_list'
+get 'product_categories_list', to: 'product_categories#list', as: 'product_categories_list'
 
 #static pages
 get 'contact', to: 'static_pages#contact'

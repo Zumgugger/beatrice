@@ -7,6 +7,11 @@ class ProductCategoriesController < ApplicationController
     @product_categories = ProductCategory.all
   end
 
+
+  def list
+    @product_categories = ProductCategory.all
+  end
+
   # GET /product_categories/1
   # GET /product_categories/1.json
   def show
