@@ -1,3 +1,4 @@
+<%title @product_category.name%>
 <p id="notice"><%= notice %></p>
 
 <div class = "center">
@@ -5,9 +6,9 @@
 <p> <%= @product_category.description %></p>
 </div>
 
-    <% @product_category.products.each do |product| %>
+    <% @product_category.products.each do |cat| %>
           <div class="box col-3 col-m-6">
-            <div class="boxcontent"> <%= link_to(image_tag(src=product.image), product) %>
+            <div class="boxcontent"> <%= link_to(image_tag(src="products/collagen/"+cat.image), cat) %>
             </div>
           </div> 
     <% end %>

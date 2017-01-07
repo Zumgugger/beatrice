@@ -2,18 +2,13 @@
 #
 # Table name: users
 #
-#  id                 :integer          not null, primary key
-#  username           :string
-#  email              :string
-#  encrypted_password :string
-#  salt               :string
-#  admin              :boolean          default(FALSE)
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  password_digest    :string
-#  activation_digest  :string
-#  activated          :boolean          default(FALSE)
-#  activated_at       :datetime
+#  id              :integer          not null, primary key
+#  username        :string
+#  email           :string
+#  admin           :boolean          default(FALSE)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  password_digest :string
 #
 
 require 'test_helper'

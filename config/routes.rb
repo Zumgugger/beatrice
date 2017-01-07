@@ -21,6 +21,7 @@ get 'product_categories_list', to: 'product_categories#list', as: 'product_categ
 #static pages
 get 'contact', to: 'static_pages#contact'
 get 'about', to: 'static_pages#about'
+get 'atelier', to: 'static_pages#atelier'
     
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

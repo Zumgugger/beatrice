@@ -1,5 +1,6 @@
 class ProductCategoriesController < ApplicationController
   before_action :set_product_category, only: [:show, :edit, :update, :destroy]
+:set_product_category_image
 
   # GET /product_categories
   # GET /product_categories.json
@@ -76,4 +77,13 @@ class ProductCategoriesController < ApplicationController
     def product_category_params
       params.require(:product_category).permit(:name, :description, :publised, :stock)
     end
+    
+    def set_product_category_image
+      dir = Rails.root.to_s + "/app/assets/images/products/collagen"
+      product_category_image = Dir.entries(dir).sort.shift(2).sample
+    end
+
+    
+      
+    
 end
