@@ -2,10 +2,10 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   def index
     @users = User.all
-  end    
+  end #Index   
 
   def show
-  end
+  end #show
     
   def new
       @user = User.new
@@ -14,8 +14,8 @@ class UsersController < ApplicationController
   def create
       @user=User.new(user_params)
       if @user.save
-        UserMailer.account_activation(@user).deliver_now
-        flash[:info] = "Bitte Email checken, um Vorgang abzuschliessen."
+#        UserMailer.account_activation(@user).deliver_now
+        flash[:success] = "Welcome"
         redirect_to @user
       else
         flash[:notice] = "Form is invalid"
