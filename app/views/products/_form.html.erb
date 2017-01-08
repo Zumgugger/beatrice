@@ -9,7 +9,7 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end #if %>
 
   <div class="field">
     <%= f.label :Name %>
@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= f.label :Herausgabedatum %>
-    <%= f.datetime_select :release_date %>
+    <%= f.date_select :release_date %>
   </div>
 
   <div class="field">
@@ -31,6 +31,10 @@
     <%= f.check_box :on_sale %>
   </div>
 
+  <div class="field">
+    <%= f.label "Unverkäuflich" %>
+    <%= f.check_box :not_for_sale %>
+  </div>
   <div class="field">
     <%= f.label :Preis %>
     <%= f.text_field :price %>
@@ -43,7 +47,7 @@
 
   <div class="field">
     <%= f.label :Bild %>
-    <%= f.text_field :image %>
+    <%= f.file_field :image %>
   </div>
 
   <div class="actions">

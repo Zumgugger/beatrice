@@ -3,38 +3,41 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
   <%= @product.name %>
 </p>
 
 <p>
-  <strong>Description:</strong>
   <%= @product.description %>
 </p>
 
 <p>
-  <strong>Release date:</strong>
-  <%= @product.release_date %>
+Herausgabedatum: <%= @product.release_date.strftime("%d.%m %Y") %>
 </p>
 
 <p>
-  <strong>On sale:</strong>
-  <%= @product.on_sale %>
-</p>
-
-<p>
-  <strong>Price:</strong>
+Preis: 
+<% if @product.on_sale %>
   <%= @product.price %>
+<%elsif @product.not_for_sale %>
+Unverkäuflich
+<%else%>
+<%= @product.price %>
+<%end%>
 </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @product.image %>
-</p>
+
+<div class="box row">
+            <div class="boxcontent"> <%= image_tag(@product.image) %>
+            </div>
+</div> 
+
 
 <p>
-  <strong>Kategorie:</strong>
+Kategorie:
   <%= @product.product_category.name %>
 </p>
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+
+<% if admin?%>
+ <%= link_to 'Edit', edit_product_path(@product)%>
+<%end%>
+<%= link_to 'Back', @product.product_category %>

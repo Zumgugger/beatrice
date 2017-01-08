@@ -37,5 +37,9 @@ module SessionsHelper
       end
       redirect_to root_url unless current_user && current_user.admin?
   end
+    
+  def admin?
+     current_user && current_user.admin?
+  end
 
 end
