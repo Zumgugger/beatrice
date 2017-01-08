@@ -14,11 +14,10 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
-host: /var/run/postgresql
+
 
 default: &default
   host: localhost
-  adapter: postgresql
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
@@ -27,8 +26,11 @@ default: &default
 development:
   <<: *default
   database: beatrice_dev
+  adapter: postgresql
   username: beatrice
   password: xene9u9eli
+
+host: /var/run/postgresql
   
   
 
@@ -88,5 +90,6 @@ test:
 production:
   <<: *default
   database: beatrice_production
+  adapter: mysql2
   username: beatrice
-  password: <%= ENV['BEATRICE_DATABASE_PASSWORD'] %>
+  password: xene9u9eli
