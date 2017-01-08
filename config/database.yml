@@ -66,6 +66,7 @@ host: /var/run/postgresql
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  adapter: mysql2
   database: beatrice_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
