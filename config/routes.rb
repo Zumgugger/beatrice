@@ -6,7 +6,7 @@ root 'product_categories#index'
 #sessions
 get     'login' => "sessions#new"
 post    'login' => 'sessions#create'
-delete  'logout'=>  'sessions#destroy'
+delete  'logout'=>  'sessions#destroy', as: 'logout'
 
 resources :product_categories
 resources :products

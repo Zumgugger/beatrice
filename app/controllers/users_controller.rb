@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :admin, only: [:index, :destroy]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :show]
   def index
     @users = User.all
   end #Index   
@@ -14,11 +17,12 @@ class UsersController < ApplicationController
   def create
       @user=User.new(user_params)
       if @user.save
+      log_in(@user)
 #        UserMailer.account_activation(@user).deliver_now
-        flash[:success] = "Welcome"
+        flash[:success] = "Willkommen"
         redirect_to @user
       else
-        flash[:notice] = "Form is invalid"
+        flash[:notice] = "Ungültig"
         flash[:color]= "invalid"
         render "new"
       end #if
@@ -56,6 +60,18 @@ class UsersController < ApplicationController
     
   def set_user
       @user = User.find(params[:id])
+  end
+  
+  def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Bitte einloggen"
+        redirect_to login_url
+      end
+  end
+    
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_path) unless @user == current_user
   end
     
 end #class

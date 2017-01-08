@@ -14,9 +14,11 @@
  *= require_self
 */
 
+
+
 html, body {
     height: 100%;
-}
+   }
 
 #wrapper {
     min-height: 100%;
@@ -28,6 +30,8 @@ html, body {
 
 header {
 height: 150 px;
+font-weight: bold;
+font-size: 1em;
 }
 
 #headerimage {
@@ -50,6 +54,11 @@ nav {
 
 nav ul li {
     text-align: center;
+    
+}
+
+nav ul li a {
+    padding-bottom: 20px;
 }
 
 .content {
@@ -109,4 +118,5 @@ input {
   color: red;
 }
 
+ 
 

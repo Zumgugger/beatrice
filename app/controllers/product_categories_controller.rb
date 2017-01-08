@@ -1,6 +1,8 @@
 class ProductCategoriesController < ApplicationController
   before_action :set_product_category, only: [:show, :edit, :update, :destroy]
 :set_product_category_image
+before_action :admin, only: [:list, :new, :edit, :update, :create, :destroy]
+before_action :store_location
 
   # GET /product_categories
   # GET /product_categories.json
