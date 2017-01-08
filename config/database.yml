@@ -16,19 +16,17 @@
 #
 
 
-default: &default
-  host: localhost
-  encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
 development:
   <<: *default
   database: beatrice_dev
   adapter: postgresql
   username: beatrice
   password: xene9u9eli
+  host: localhost
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 host: /var/run/postgresql
   
@@ -94,3 +92,8 @@ production:
   adapter: mysql2
   username: beatrice
   password: xene9u9eli
+  host: localhost
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
