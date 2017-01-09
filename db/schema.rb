@@ -13,45 +13,42 @@
 
 ActiveRecord::Schema.define(version: 20170108144314) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "blogposts", force: :cascade do |t|
+  create_table "blogposts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "title"
-    t.text     "body"
-    t.boolean  "published",  default: true
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "body",       limit: 65535
+    t.boolean  "published",                default: true
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
-  create_table "product_categories", force: :cascade do |t|
+  create_table "product_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
-    t.text     "description"
-    t.integer  "stock",       default: 1
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.text     "description", limit: 65535
+    t.integer  "stock",                     default: 1
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.string   "image"
-    t.boolean  "published",   default: true
+    t.boolean  "published",                 default: true
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
-    t.text     "description"
+    t.text     "description",         limit: 65535
     t.datetime "release_date"
     t.boolean  "on_sale"
-    t.float    "price"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.float    "price",               limit: 24
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.integer  "product_category_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.boolean  "not_for_sale",        default: false
+    t.boolean  "not_for_sale",                      default: false
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "username"
     t.string   "email"
     t.boolean  "admin",           default: false
