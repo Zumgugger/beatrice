@@ -1,0 +1,29 @@
+a {
+    text-decoration: none; 
+    color: currentColor;
+}
+
+a:visited {
+    color: currentColor;
+}
+
+a:hover {
+    color: darkslategrey;
+}
+
+
+td, .left {
+    text-align: left;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+li {
+    display: inline;
+}
+
+li a {
+    display: block;
+}
