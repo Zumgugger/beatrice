@@ -4,11 +4,19 @@
 <div class = "center">
 <h1> <%= @product_category.name %></h1>
 <p> <%= @product_category.description %></p>
+<%if admin?%>
+<p> <%= link_to("Editieren", edit_product_category_path(@product_category)) %>
+</p>
+<%end%>
+
+    
+    
 </div>
 
     <% @product_category.products.each do |prod| %>
           <div class="box col-3 col-m-6">
-            <div class="boxcontent"> <%= link_to(image_tag(src=prod.image), prod) %>
+            <div class="boxcontent"> 
+                <%= link_to(image_tag(prod.image), prod) %>
             </div>
           </div> 
     <% end %>

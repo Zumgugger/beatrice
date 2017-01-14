@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
 root 'product_categories#index'
     
 #sessions
@@ -12,6 +11,7 @@ resources :product_categories
 resources :products
 resources :users
 resources :blogposts
+resources :snippets
 resources :account_activations, only: [:edit]
  
 #additional routes    

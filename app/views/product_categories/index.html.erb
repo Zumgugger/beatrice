@@ -4,7 +4,8 @@
 
     <% @product_categories.each do |cat| %>
           <div class="box col-3 col-m-6">
-            <div class="boxcontent"> <%= link_to(image_tag(src=cat.name.downcase), cat) %>
+            <div class="boxcontent"> 
+                <%= link_to(image_tag(cat.image(:medium)), cat) %>
             </div>
           </div> 
     <% end %>

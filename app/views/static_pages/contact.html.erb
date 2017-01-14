@@ -1,11 +1,15 @@
-<%title "Kontakt"%>
+<%title @snippets[5].text %>
 
-<h1>Kontakt</h1>
+<h1><%=best_in_place_if admin?, @snippets[5], :text %></h1>
 
 
-<p>Beatrice Gugger</p>
-<p>Allmendeggenstrasse 40</p>
-<p>Blumenstein</p>
-<p>033 356 09 06</p>
-<p>beatricegugger(ät)hotmail.com</p>
+<p><%=best_in_place_if admin?, @snippets[0], :text %></p>
+<p><%=best_in_place_if admin?, @snippets[1], :text %></p>
+<p><%=best_in_place_if admin?, @snippets[2], :text %></p>
+<p><%=best_in_place_if admin?, @snippets[3], :text %></p>
+<p><%=best_in_place_if admin?, @snippets[4], :text %></p>
 <br />
+
+<% if admin?%>
+<p><%=  "Klicke in den Text um ihn zu ändern" %></p>
+<%end%>

@@ -4,7 +4,8 @@
 
     <% @products.each do |product| %>
           <div class="box col-3 col-m-6">
-            <div class="boxcontent"> <%= link_to(image_tag(src=product.image), product) %>
+            <div class="boxcontent"> 
+                <%= link_to(image_tag(@product.image(:medium)), product) %>
             </div>
           </div> 
     <% end %>

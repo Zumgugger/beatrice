@@ -47,6 +47,7 @@
 
   <div class="field">
     <%= f.label :Bild %>
+      <%= image_tag(product.image.url(:thumb)) if product.image %>
     <%= f.file_field :image %>
   </div>
 

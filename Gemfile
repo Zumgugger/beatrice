@@ -50,4 +50,5 @@ gem "paperclip", "~> 5.0.0"
 gem 'annotate'
 gem 'foundation-rails'
 gem 'mysql2', '>= 0.4.5'
+gem 'best_in_place', '~> 3.0.1'
 

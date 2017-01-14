@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170108144314) do
+ActiveRecord::Schema.define(version: 20170112153425) do
 
   create_table "blogposts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "title"
@@ -23,12 +23,15 @@ ActiveRecord::Schema.define(version: 20170108144314) do
 
   create_table "product_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
-    t.text     "description", limit: 65535
-    t.integer  "stock",                     default: 1
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.text     "description",        limit: 65535
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
     t.string   "image"
-    t.boolean  "published",                 default: true
+    t.boolean  "published",                        default: true
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -46,6 +49,13 @@ ActiveRecord::Schema.define(version: 20170108144314) do
     t.datetime "image_updated_at"
     t.boolean  "not_for_sale",                      default: false
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
+  end
+
+  create_table "snippets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "name"
+    t.text     "text",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

@@ -1,6 +1,5 @@
 class ProductCategoriesController < ApplicationController
-  before_action :set_product_category, only: [:show, :edit, :update, :destroy]
-:set_product_category_image
+before_action :set_product_category, only: [:show, :edit, :update, :destroy]
 before_action :admin, only: [:list, :new, :edit, :update, :create, :destroy]
 before_action :store_location
 
@@ -77,15 +76,6 @@ before_action :store_location
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_category_params
-      params.require(:product_category).permit(:name, :description, :publised, :stock)
+      params.require(:product_category).permit(:name, :description, :published, :image, :product_category_id)
     end
-    
-    def set_product_category_image
-      dir = Rails.root.to_s + "/app/assets/images/products/collagen"
-      product_category_image = Dir.entries(dir).sort.shift(2).sample
-    end
-
-    
-      
-    
 end

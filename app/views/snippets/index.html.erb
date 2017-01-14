@@ -1,0 +1,27 @@
+<%title "Alle Textteile"%>
+<p id="notice"><%= notice %></p>
+
+<p>Klicke um zu ändern!</p>
+<table>
+    <tr>
+        <th>id</th>
+        <th>Name</th>
+        <th>Text</th>
+        <th>Show</th>
+    </tr>
+
+    <% @snippets.each do |snippet| %>
+    <tr>
+        <td><%= snippet.id %></td>
+        <td><%=best_in_place(snippet,  :name) %></td>
+        <td><%=best_in_place(snippet, :text) %></td>
+        <td><%= link_to("Anzeigen", snippet)%></td>
+    </tr>
+    <% end %>
+    
+
+    
+</table>
+
+<p>
+    <%= link_to("neu", snippets_path, method: :post) %><p>
