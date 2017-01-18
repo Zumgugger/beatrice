@@ -38,8 +38,8 @@ overflow: hidden;
 
 
 nav {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 2em;
+    padding-bottom: 2em;
 
 }
 
@@ -49,7 +49,7 @@ nav ul li {
 }
 
 nav ul li a {
-   padding-bottom: 20px;
+
 }
 
 .content {
@@ -61,22 +61,39 @@ footer {
     position: absolute;
     bottom: 0px;
     height: 2.5em;
-
 }
 
 
  /*Seitl Abstand um den Inhalt*/
-@media only screen and (min-width: 600px){
-/* For tablets and desktops: */
+@media only screen and (min-width: 600px) {
+    .middle-m { 
+    width:80%;
+    height:100%;
+    margin:auto;}
+    nav ul li a{
+    padding-bottom: 1em;
+    }
+}
+
+@media only screen and (min-width: 1024px){
 .middle {
     width:60%;
     height:100%;
-    margin:auto;
+    margin:auto;}
 }
-
  /* For mobile phones: */
+@media only screen and (max-width: 600px){
+
 .middle-mobile {
-    width: 100%;
+    width: 90%;
+    height:100%;
+    margin:auto;}
+    nav ul li a{
+    padding-bottom: 1em;
+    }
+    
+
+    
 }
 
 .center {
@@ -91,9 +108,30 @@ section img {
     width: 50%;
     float:right;
     }
-    
+
+.box{	
+    position: relative;
 }
 
+.boxcontent {
+    position:absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right:0;
+}
+
+.box:before {
+	content: "";
+	display: block;
+	padding-top: 100%; 	/* initial ratio of 1:1*/
+}
+
+
+.boxcontent img {
+    max-width: 80%;
+    padding: 10%;
+}
 
 /* forms */
 
@@ -110,8 +148,4 @@ input {
 
 #error_explanation {
   color: red;
-}
-
-.button {
-
 }

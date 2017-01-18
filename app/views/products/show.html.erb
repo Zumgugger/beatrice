@@ -2,6 +2,7 @@
 
 <p id="notice"><%= notice %></p>
 
+<div class="row">
 <p>
   <%= @product.name %>
 </p>
@@ -24,8 +25,7 @@ Unverkäuflich
 <%= @product.price %>
 <%end%>
 </p>
-
-
+</div>
 <div class="box row">
             <div class="boxcontent"> <%= image_tag(@product.image) %>
             </div>
@@ -34,7 +34,7 @@ Unverkäuflich
 
 <p>
 Kategorie:
-  <%= @product.product_category.name %>
+  <%= @product.product_category.name if @product.product_category%>
 </p>
 
 <% if admin?%>

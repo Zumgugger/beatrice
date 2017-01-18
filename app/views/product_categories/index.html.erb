@@ -1,7 +1,7 @@
 <%title "Portfolio"%>
-<p id="notice"><%= notice %></p>
+<div class= "row"><p id="notice"><%= notice %></p>
 
-
+<% 10.times do %>
     <% @product_categories.each do |cat| %>
           <div class="box col-3 col-m-6">
             <div class="boxcontent"> 
@@ -9,4 +9,7 @@
             </div>
           </div> 
     <% end %>
+<%end%>
+    
+    </div>
 

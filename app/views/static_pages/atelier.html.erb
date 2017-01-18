@@ -1,11 +1,11 @@
 <%title @snippets[8].text %>
 <h1><%= best_in_place_if admin?, @snippets[8], :text %> </h1>
 
-<section class="col-6 col-m-6">
+<div class="col-6 col-m-6">
     <br />
 <p><%= best_in_place_if admin?, @snippets[9], :text, as: :textarea %></p>
 <p><%= best_in_place_if admin?, @snippets[10], :text, as: :textarea %></p> 
-</section>
+</div>
 <div class="box col-6 col-m-6">
     <div class="boxcontent">
         <%= image_tag(src="atelier.jpg") %>
