@@ -10,15 +10,12 @@
 <p>
   <%= @product.description %>
 </p>
-
+    
 <p>
-Herausgabedatum: <%= @product.release_date.strftime("%d.%m %Y") %>
-</p>
-
-<p>
-Preis: 
-<% if @product.on_sale %>
+ 
+<% if @product.on_sale && @product.price %>
   <%= @product.price %>
+Preis:
 <%elsif @product.not_for_sale %>
 Unverkäuflich
 <%else%>
@@ -26,18 +23,19 @@ Unverkäuflich
 <%end%>
 </p>
 </div>
-<div class="box row">
-            <div class="boxcontent"> <%= image_tag(@product.image) %>
+<div class="row">
+            <div class="center"> <%= image_tag(@product.image) %>
             </div>
 </div> 
 
 
 <p>
 Kategorie:
-  <%= @product.product_category.name if @product.product_category%>
+  <%= link_to(@product.product_category.name, @product.product_category) if @product.product_category%>
 </p>
 
 <% if admin?%>
- <%= link_to 'Edit', edit_product_path(@product)%>
+ <%= link_to 'Ändern', edit_product_path(@product)%>
+ <%= link_to 'Löschen', @product, method: :delete, data: { confirm: 'Würklech?' } %>
 <%end%>
-<%= link_to 'Back', @product.product_category %>
+<%= link_to 'Zurück', @product.product_category %>

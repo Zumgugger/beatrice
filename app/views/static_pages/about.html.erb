@@ -2,15 +2,14 @@
 <div class = "row">
     <h1><%= best_in_place_if admin?, @snippets[6], :text %></h1>
     <div class="col-9 col-m-9">
-        <br />
         <p><%= best_in_place_if admin?, @snippets[7], :text, as: :textarea %></p> 
     </div>
-    <div class=" box col-3 col-m-3">
+    <div class="box col-3 col-m-3">
         <div class="boxcontent">
-            <%= image_tag(src="beatrice.jpg") %>
+            <%= image_tag(src="beatrice.jpg", class:"nopadding clear") %>
         </div>
     </div>
     <% if admin?%>
-        <p>Klicke in den Text um ihn zu ändern</p>
+        <div class="clear">Klicke in den Text um ihn zu ändern</div>
     <%end%>
 </div>

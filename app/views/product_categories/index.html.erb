@@ -1,13 +1,20 @@
 <%title "Portfolio"%>
 <div class= "row"><p id="notice"><%= notice %></p>
 
+    <% if admin? %>
+        <div class="row"><%= button_to( "Listenansicht zum Verwalten", product_categories_list_url, method: :get)%></div>
+    <% end %>
+
+
+
     <% @product_categories.each do |cat| %>
           <div class="box col-3 col-m-6">
             <div class="boxcontent"> 
                 <%= link_to(image_tag(cat.image(:medium)), cat) %>
             </div>
           </div> 
-    <% end %>
-    
+    <% end #do%>
+
+ 
     </div>
 

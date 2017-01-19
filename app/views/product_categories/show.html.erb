@@ -5,7 +5,7 @@
 <h1> <%= @product_category.name %></h1>
 <p> <%= @product_category.description %></p>
 <%if admin?%>
-<p> <%= link_to("Editieren", edit_product_category_path(@product_category)) %>
+<p> <%= button_to("Kategorie #{@product_category.name} bearbeiten", edit_product_category_path(@product_category), method: :get) %>
 </p>
 <%end%>
 
