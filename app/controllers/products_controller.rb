@@ -31,6 +31,7 @@ before_action :store_location
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    @product.position = 
 
     respond_to do |format|
       if @product.save
@@ -46,6 +47,16 @@ before_action :store_location
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+      
+      if params[:up] == "1"
+         @product.move_higher
+        redirect_to clist_product_category_path(@product.product_category)
+        return
+     elsif params[:up] == "2"
+         @product.move_lower
+        redirect_to clist_product_category_path(@product.product_category)
+        return
+      end
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }

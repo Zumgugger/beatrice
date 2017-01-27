@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170127180042) do
+ActiveRecord::Schema.define(version: 20170127215056) do
 
   create_table "blogposts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "title"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20170127180042) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.boolean  "not_for_sale",                      default: false
-    t.integer  "sort",                              default: 0
+    t.integer  "position"
     t.index ["product_category_id"], name: "index_products_on_product_category_id", using: :btree
   end
 

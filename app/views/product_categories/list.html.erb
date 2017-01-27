@@ -18,9 +18,7 @@
   <tbody>
     <% @product_categories.order(:position).each do |product_category| %>
       <tr>
-        <td><%= link_to('up', product_category_url(product_category.id, :product_category => product_category.attributes, :up => 1),  method: :put)%></td>
-          
-          
+        <td><%= link_to('up', product_category_url(product_category.id, :product_category => product_category.attributes, :up => 1),  method: :put)%></td> 
         <td><%= best_in_place(product_category, :position)%></td>
         <td><%= best_in_place(product_category, :name) %></td>
         <td><%= best_in_place(product_category, :description)%></td>

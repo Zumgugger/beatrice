@@ -11,7 +11,7 @@
             </p>
         <%end%>
     </div>
-    <% @product_category.products.order(:sort, release_date: :desc).each do |prod| %>
+    <% @product_category.products.order(:position, release_date: :desc).each do |prod| %>
         <div class="box col-3 col-m-6">
             <div class="boxcontent"> 
                 <%= link_to(image_tag(prod.image), prod) %>

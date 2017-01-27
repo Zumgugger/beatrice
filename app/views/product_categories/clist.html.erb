@@ -7,7 +7,7 @@
 <table>
   <thead>
     <tr>
-      <th>Nr.</th>
+      <th colspan="2"></th>
       <th>Name</th>
       <th>Beschrieb</th>
       <th>Anzeigen</th>
@@ -16,9 +16,10 @@
   </thead>
 
   <tbody>
-    <% @product_category.products.order(:sort, release_date: :desc).each do |product| %>
+    <% @product_category.products.order(:position, release_date: :desc).each do |product| %>
       <tr>
-        <td><%= best_in_place(product, :sort) %></td>
+        <td><%= link_to(" \u25B2 ", product_url(product.id, :product => product.attributes, :up => 1),  method: :put)%></td>
+        <td><%= link_to(" \u25BC ", product_url(product.id, :product => product.attributes, :up => 2),  method: :put)%></td>
         <td><%= best_in_place(product, :name)%></td>
         <td><%= best_in_place(product, :description) %></td>
         <td><%= link_to(image_tag(product.image(:thumb)), product, alt: 'Anzeigen') %></td>
