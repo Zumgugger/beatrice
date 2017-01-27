@@ -5,12 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>Sortieren</th>
-      <th>Nr. </th>
+      <th colspan="2"></th>
       <th>Name</th>
       <th>Beschrieb</th>
       <th>Veröffentlicht</th>
-      <th>Bild</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,13 +16,12 @@
   <tbody>
     <% @product_categories.order(:position).each do |product_category| %>
       <tr>
-        <td><%= link_to('up', product_category_url(product_category.id, :product_category => product_category.attributes, :up => 1),  method: :put)%></td> 
-        <td><%= best_in_place(product_category, :position)%></td>
+        <td><%= link_to(" \u25B2 ", product_category_url(product_category.id, :product_category => product_category.attributes, :up => 1),  method: :put)%></td> 
+        <td><%= link_to(" \u25BC ", product_category_url(product_category.id,  :product_category => product_category.attributes, :up => 2),  method: :put)%></td>
         <td><%= best_in_place(product_category, :name) %></td>
         <td><%= best_in_place(product_category, :description)%></td>
         <td><%= best_in_place(product_category, :published, as: :select, collection: {true: "Ja", false: "Nein"}) %></td>
-        <td><%= image_tag(product_category.image(:thumb)) %></td>
-        <td><%= link_to 'Anzeigen', product_category %></td>
+        <td><%= link_to(image_tag(product_category.image(:thumb)), clist_product_category_path(product_category)) %></td>
         <td><%= link_to 'Ändern', edit_product_category_path(product_category) %></td>
         <td><%= link_to 'Löschen', product_category, method: :delete, data: { confirm: 'Würklech?' } %></td>
       </tr>

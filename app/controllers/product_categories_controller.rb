@@ -52,11 +52,15 @@ before_action :store_location
   # PATCH/PUT /product_categories/1
   # PATCH/PUT /product_categories/1.json
   def update
-      if params[:up] == "1"
-         @product_category.move_higher
+    if params[:up] == "1"
+        @product_category.move_higher
         redirect_to product_categories_list_path
         return
-      end
+    elsif params[:up] == "2"
+        @product_category.move_lower
+        redirect_to product_categories_list_path
+        return
+    end
              
     respond_to do |format|
     
