@@ -1,15 +1,12 @@
 <%title @snippets[5].text %>
-
-<h1><%=best_in_place_if admin?, @snippets[5], :text %></h1>
-
-
-<p><%=best_in_place_if admin?, @snippets[0], :text %></p>
-<p><%=best_in_place_if admin?, @snippets[1], :text %></p>
-<p><%=best_in_place_if admin?, @snippets[2], :text %></p>
-<p><%=best_in_place_if admin?, @snippets[3], :text %></p>
-<p><%=best_in_place_if admin?, @snippets[4], :text %></p>
-<br />
-
-<% if admin?%>
-<p><%=  "Klicke in den Text um ihn zu ändern" %></p>
-<%end%>
+<div class="row">
+    <h1><%=best_in_place_if admin?, @snippets[5], :text %></h1>
+    <p><%=best_in_place_if admin?, @snippets[0], :text %></p>
+    <p><%=best_in_place_if admin?, @snippets[1], :text %></p>
+    <p><%=best_in_place_if admin?, @snippets[2], :text %></p>
+    <p><%=best_in_place_if admin?, @snippets[3], :text %></p>
+    <p><%=best_in_place_if admin?, @snippets[4], :text %></p>
+    <% if admin?%>
+        <p><%=  "Klicke in den Text um ihn zu ändern" %></p>
+    <%end%>
+</div>

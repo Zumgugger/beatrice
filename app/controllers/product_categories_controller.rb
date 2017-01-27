@@ -1,6 +1,6 @@
 class ProductCategoriesController < ApplicationController
-before_action :set_product_category, only: [:show, :edit, :update, :destroy]
-before_action :admin, only: [:list, :new, :edit, :update, :create, :destroy]
+before_action :set_product_category, only: [:show, :clist, :edit, :update, :destroy]
+before_action :admin, only: [:list, :new, :clist, :edit, :update, :create, :destroy]
 before_action :store_location
 
   # GET /product_categories
@@ -17,6 +17,9 @@ before_action :store_location
   # GET /product_categories/1
   # GET /product_categories/1.json
   def show
+  end
+    
+  def clist
   end
 
   # GET /product_categories/new

@@ -1,0 +1,31 @@
+<%title "Listenansicht der Kategorie #{@product_category.name}"%>
+<div class="row">
+<p id="notice"><%= notice %></p>
+
+<h1><%= "Kategorie #{@product_category.name}"%></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Beschrieb</th>
+      <th>Bild</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @product_category.products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td><%= image_tag(product.image(:thumb)) %></td>
+        <td><%= link_to 'Anzeigen', product %></td>
+        <td><%= link_to 'Ändern', edit_product_path(product) %></td>
+        <td><%= link_to 'Löschen', product, method: :delete, data: { confirm: 'Würklech?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>

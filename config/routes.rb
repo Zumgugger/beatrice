@@ -17,6 +17,7 @@ resources :account_activations, only: [:edit]
 #additional routes    
 get 'products_list', to: 'products#list', as: 'products_list'
 get 'product_categories_list', to: 'product_categories#list', as: 'product_categories_list'
+get 'product_categories_clist/:id', to: 'product_categories#clist', as: 'clist_product_category'
 
 #static pages
 get 'contact', to: 'static_pages#contact'

@@ -1,22 +1,21 @@
 <%title @product_category.name%>
-<p id="notice"><%= notice %></p>
-
-<div class = "center">
-<h1> <%= @product_category.name %></h1>
-<p> <%= @product_category.description %></p>
-<%if admin?%>
-<p> <%= button_to("Kategorie #{@product_category.name} bearbeiten", edit_product_category_path(@product_category), method: :get) %>
-</p>
-<%end%>
-
-    
-    
-</div>
-
+<div class="row">
+    <p id="notice"><%= notice %></p>
+    <div class = "center">
+        <h1> <%= @product_category.name %></h1>
+        <p> <%= @product_category.description %></p>
+        <%if admin?%>
+            <p> <%= button_to("Kategorie #{@product_category.name} bearbeiten", edit_product_category_path(@product_category), method: :get) %>
+            </p>
+            <p> <%= button_to("Listenansicht #{@product_category.name} zum Verwalten", clist_product_category_path(@product_category), method: :get) %>
+            </p>
+        <%end%>
+    </div>
     <% @product_category.products.each do |prod| %>
-          <div class="box col-3 col-m-6">
+        <div class="box col-3 col-m-6">
             <div class="boxcontent"> 
                 <%= link_to(image_tag(prod.image), prod) %>
             </div>
-          </div> 
+        </div> 
     <% end %>
+</div>
