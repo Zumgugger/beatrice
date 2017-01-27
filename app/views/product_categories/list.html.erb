@@ -5,6 +5,8 @@
 <table>
   <thead>
     <tr>
+      <th>Sortieren</th>
+      <th>Nr. </th>
       <th>Name</th>
       <th>Beschrieb</th>
       <th>Veröffentlicht</th>
@@ -14,11 +16,15 @@
   </thead>
 
   <tbody>
-    <% @product_categories.each do |product_category| %>
+    <% @product_categories.order(:position).each do |product_category| %>
       <tr>
-        <td><%= product_category.name %></td>
-        <td><%= product_category.description %></td>
-        <td><%= product_category.published %></td>
+        <td><%= link_to('up', product_category_url(product_category.id, :product_category => product_category.attributes, :up => 1),  method: :put)%></td>
+          
+          
+        <td><%= best_in_place(product_category, :position)%></td>
+        <td><%= best_in_place(product_category, :name) %></td>
+        <td><%= best_in_place(product_category, :description)%></td>
+        <td><%= best_in_place(product_category, :published, as: :select, collection: {true: "Ja", false: "Nein"}) %></td>
         <td><%= image_tag(product_category.image(:thumb)) %></td>
         <td><%= link_to 'Anzeigen', product_category %></td>
         <td><%= link_to 'Ändern', edit_product_category_path(product_category) %></td>
@@ -32,3 +38,4 @@
 <div class="row">
 <%= button_to 'Neue Kategorie erstellen', new_product_category_path, method: :get %>
 </div>
+

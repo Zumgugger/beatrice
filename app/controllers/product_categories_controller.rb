@@ -5,6 +5,8 @@ before_action :store_location
 
   # GET /product_categories
   # GET /product_categories.json
+
+    
   def index
     @product_categories = ProductCategory.all
   end
@@ -50,10 +52,18 @@ before_action :store_location
   # PATCH/PUT /product_categories/1
   # PATCH/PUT /product_categories/1.json
   def update
+      if params[:up] == "1"
+         @product_category.move_higher
+        redirect_to product_categories_list_path
+        return
+      end
+             
     respond_to do |format|
-      if @product_category.update(product_category_params)
+    
+    if @product_category.update(product_category_params)
+
         format.html { redirect_to @product_category, notice: 'Product category was successfully updated.' }
-        format.json { render :show, status: :ok, location: @product_category }
+        format.json { respond_with_bip(@product_category) }
       else
         format.html { render :edit }
         format.json { render json: @product_category.errors, status: :unprocessable_entity }
@@ -79,6 +89,6 @@ before_action :store_location
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_category_params
-      params.require(:product_category).permit(:name, :description, :published, :image, :product_category_id)
+      params.require(:product_category).permit(:name, :description, :published, :image, :product_category_id, :position, :id, :up, :updated_at, :created_at, :image_content_type, :image_file_name, :image_file_size, :image_updated_at)
     end
 end

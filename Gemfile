@@ -51,5 +51,5 @@ gem 'annotate'
 gem 'foundation-rails'
 gem 'mysql2', '>= 0.4.5'
 gem 'best_in_place', '~> 3.0.1'
-
+gem 'acts_as_list'
 
