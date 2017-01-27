@@ -75,6 +75,6 @@ before_action :store_location
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :release_date, :on_sale, :price, :image, :product_category_id)
+      params.require(:product).permit(:name, :description, :release_date, :on_sale, :price, :image, :sort, :product_category_id)
     end
 end
