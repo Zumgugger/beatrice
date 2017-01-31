@@ -1,7 +1,7 @@
 class SnippetsController < ApplicationController
 
 before_action :set_snippet, only: [:show, :edit, :update, :destroy]
-before_action :admin?
+before_action :admin
       
   def index
     @snippets = Snippet.all
