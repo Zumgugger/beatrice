@@ -73,9 +73,13 @@ footer {
     nav ul li a{
     padding-bottom: 1em;
     }
+    span.text-content {font-size: 3vw;
+    }
 }
 
 @media only screen and (min-width: 1024px){
+span.text-content {font-size: 1.15vw;
+    }   
 .middle {
     width:60%;
     height:100%;
@@ -83,7 +87,9 @@ footer {
 }
  /* For mobile phones: */
 @media only screen and (max-width: 600px){
-
+    
+span.text-content {font-size: 6vw;
+    }
 .middle-mobile {
     width: 90%;
     height:100%;
@@ -144,6 +150,33 @@ section img {
     max-width: 80%;
     padding: 10%;
     max-height: 100%
+}
+
+span.text-content {
+    background: rgba(0,0,0,0.5);
+    color: white;
+    font-weight: bold;
+    display: table;
+    width: 80%;
+    height: 80%;
+    opacity: 0;
+    position:absolute;
+    left: 10%;
+    top:10%;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+
+span.text-content span {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.cat-image:hover span.text-content {
+  opacity: 1;
 }
 
 /* forms */

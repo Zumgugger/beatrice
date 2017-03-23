@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170127215056) do
+ActiveRecord::Schema.define(version: 20170323160720) do
 
   create_table "blogposts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "title"
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 20170127215056) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "position"
+    t.string   "hover_file_name"
+    t.string   "hover_content_type"
+    t.integer  "hover_file_size"
+    t.datetime "hover_updated_at"
   end
 
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

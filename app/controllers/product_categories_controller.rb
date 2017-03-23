@@ -93,6 +93,6 @@ before_action :store_location
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_category_params
-      params.require(:product_category).permit(:name, :description, :published, :image, :product_category_id, :position, :id, :up)
+      params.require(:product_category).permit(:name, :description, :published, :image, :hover, :product_category_id, :position, :id, :up)
     end
 end

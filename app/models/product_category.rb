@@ -21,6 +21,7 @@ class ProductCategory < ApplicationRecord
     
     has_many :products
     has_attached_file :image, styles: {original: "1000x1000>", medium: "400x400>", thumb: "100x100>" }
+    has_attached_file :hover, styles: {original: "1000x1000>", medium: "400x400>", thumb: "100x100>" }
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
     acts_as_list
 end

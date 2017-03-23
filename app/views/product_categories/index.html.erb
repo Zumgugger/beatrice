@@ -7,9 +7,16 @@
     <% end %>
     <% @product_categories.order(:position).each do |cat| %>
         <div class="box col-3 col-m-6">
-            <div class="boxcontent"> 
-                <%= link_to(image_tag(cat.image(:medium)), cat) %>
+            <div class="boxcontent cat-image"> 
+                <%= link_to cat do %> 
+                <%=image_tag(cat.image(:medium))%>
+                <span class="text-content">
+                    <span><%= cat.name%></span>
+                </span>
+                <% end #do%>
+                
             </div>
+
         </div> 
     <% end #do%>
 </div>
