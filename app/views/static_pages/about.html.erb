@@ -1,10 +1,10 @@
 <%title @snippets[6].text %>
 <div class = "row">
     <h1><%= best_in_place_if admin?, @snippets[6], :text %></h1>
-    <div class="col-9 col-m-9">
+    <div class="col-6 col-m-6">
         <p><%= best_in_place_if admin?, @snippets[7], :text, as: :textarea %></p> 
     </div>
-    <div class="box col-3 col-m-3">
+    <div class="box col-6 col-m-6">
         <div class="boxcontent">
             <%= image_tag(src="beatrice.jpg", class:"nopadding clear") %>
         </div>
