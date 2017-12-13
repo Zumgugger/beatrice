@@ -6,6 +6,7 @@
     <p><%=best_in_place_if admin?, @snippets[2], :text %></p>
     <p><%=best_in_place_if admin?, @snippets[3], :text %></p>
     <p><%=best_in_place_if admin?, @snippets[4], :text %></p>
+    <p><%=link_to image_tag("instagram.png", size: "16x16"),   "http://www.instagram.com/beatricegugger", target: :_blank %>  <%=link_to "instagram: @beatricegugger", "http://www.instagram.com/beatricegugger", target: :_blank %></p>
     <% if admin?%>
         <p><%=  "Klicke in den Text um ihn zu ändern" %></p>
     <%end%>
