@@ -3,13 +3,18 @@
     <h1><%= best_in_place_if admin?, @snippets[8], :text %> </h1>
     <div class="row">
         <p><%= best_in_place_if admin?, @snippets[9], :text, as: :textarea %></p>
-        <p><%= best_in_place_if admin?, @snippets[10], :text, as: :textarea %></p> 
+        <p><%= best_in_place_if admin?, @snippets[10], :text, as: :textarea %></p>
+       
     </div>
     <div class=" box row">
         <div class="boxcontent">
             <%= image_tag(src="atelier.jpg", class:"nopadding") %>
+            <div class ="center">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2733.6093515019493!2d7.52341300094493!3d46.75288429262395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478e4dc208fdb899%3A0x9fa304781ee81152!2sHelten+37%2C+3636+L%C3%A4ngenb%C3%BChl!5e0!3m2!1sde!2sch!4v1531305533797" width="80%" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
+        
     <% if admin?%>
         <p class="clear">Klicke in den Text um ihn zu ändern</p>
     <%end%>
